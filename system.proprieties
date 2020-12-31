@@ -1,13 +1,1 @@
-$ ls
-Procfile pom.xml src
-
-$ echo "java.runtime.version=11" > system.properties
-
-$ git add system.properties && git commit -m "Java 14"
-
-$ git push heroku main
-...
------> Java app detected
------> Installing OpenJDK 1.8... done
------> Installing Maven 4.0.0... done
-...
+java.runtime.version=11
