@@ -1,7 +1,7 @@
 $ ls
 Procfile pom.xml src
 
-$ echo "java.runtime.version=14.0" > system.properties
+$ echo "java.runtime.version=11" > system.properties
 
 $ git add system.properties && git commit -m "Java 14"
 
