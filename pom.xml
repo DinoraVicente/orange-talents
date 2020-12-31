@@ -59,17 +59,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<release>11</release>
-					<source>11</source>
-					<target>11</target>
-					<compilerArgs>--enable-preview</compilerArgs>
-				</configuration>
-			</plugin>
+
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>heroku-maven-plugin</artifactId>
