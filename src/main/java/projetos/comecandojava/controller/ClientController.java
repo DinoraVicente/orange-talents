@@ -15,11 +15,11 @@ public class ClientController {
     private static Map<String, String> map = new HashMap<String, String>();
 
     /*
-       Onde "pega-se" os dados.
+       Onde "pega-se" os dados dentro do BD através do endpoint.
     */
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public List<Clientes> getClientes() {
-        return ClienteService.getAll();
+        return ClienteService.selectClientes();
     }
 
     /* onde as informações são postadas, uma requisição para o servidor enviando os seus dados do formulário. */

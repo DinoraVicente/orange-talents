@@ -15,7 +15,7 @@ public class ClienteService {
     private static Map<String, String> response = new HashMap<String, String>();
 
     /* dados coletados do banco de dados */
-    public static List<Clientes> getAll(){
+    public static List<Clientes> selectClientes(){
         return entityManager.createNativeQuery("SELECT * FROM clientes").getResultList();
     }
 
@@ -34,7 +34,7 @@ public class ClienteService {
             response.put("statusCode", "201");
             response.put("description", "Usuário cadastrado com sucesso!");
             return response;
-        } catch(Exception e) {
+        } catch(Exception e) { 
             response.put("statusCode", "400");
             response.put("description", "Erro ao executar o cadastro...");
             return response;
@@ -49,7 +49,6 @@ public class ClienteService {
         clientes.setNascimento((String) args.get("nascimento"));
 
         if(entityManager.find(Clientes.class, clientes.getCpf()) != null){
-            try {
                 entityManager.getTransaction().begin();
                 entityManager.merge(clientes);
                 entityManager.getTransaction().commit();
@@ -58,15 +57,13 @@ public class ClienteService {
                 response.put("description", "Usuário alterado com sucesso!");
 
                 return response;
-            } catch(Exception e) {
+            } else {
                 response.put("statusCode", "400");
                 response.put("description", "Erro ao executar a alteração...");
 
                 return response;
             }
         }
-        return null;
-    }
 
     public static Map deleteCliente(Map args) {
         Clientes clientes = entityManager.find(Clientes.class, args.get("cpf"));
